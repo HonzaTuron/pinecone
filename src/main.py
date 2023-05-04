@@ -14,7 +14,7 @@ async def main():
 
         print("Loading dataset");
         loader = ApifyDatasetLoader(
-            dataset_id=actor_input.get('payload').resource.defaultDatasetId,
+            dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
             dataset_mapping_function=lambda dataset_item: Document(
                 page_content=dataset_item["text"], metadata={"source": dataset_item["url"]}
             ),
