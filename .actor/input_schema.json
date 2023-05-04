@@ -1,0 +1,32 @@
+{
+  "title": "Add two integers",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "index_name": {
+      "title": "Pinecone index name",
+      "type": "string",
+      "description": "The pinecone index name.",
+      "editor": "textfield"
+    },
+    "payload": {
+      "title": "Input actor payload",
+      "type": "object",
+      "description": "Input actor payload.",
+      "editor": "json"
+    },
+    "pinecone_token": {
+      "title": "Pinecone token",
+      "description": "Pinecone token",
+      "type": "string",
+      "editor": "textfield"
+    },
+    "pinecone_env": {
+      "title": "Pinecone env",
+      "description": "Pinecone environment",
+      "type": "string",
+      "editor": "textfield"
+    }
+  },
+  "required": ["index_name", "payload", "pinecone_token", "pinecone_env"]
+}
