@@ -9,12 +9,6 @@
       "description": "The pinecone index name.",
       "editor": "textfield"
     },
-    "payload": {
-      "title": "Input actor payload",
-      "type": "object",
-      "description": "Input actor payload.",
-      "editor": "json"
-    },
     "pinecone_token": {
       "title": "Pinecone token",
       "description": "Pinecone token",
@@ -28,5 +22,5 @@
       "editor": "textfield"
     }
   },
-  "required": ["index_name", "payload", "pinecone_token", "pinecone_env"]
+  "required": ["index_name", "pinecone_token", "pinecone_env"]
 }
