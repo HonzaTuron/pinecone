@@ -13,13 +13,13 @@
       "title": "Pinecone token",
       "description": "Pinecone token",
       "type": "string",
-      "editor": "hidden"
+      "editor": "textfield"
     },
     "openai_token": {
       "title": "OpenAI token",
       "description": "OpenAI token",
       "type": "string",
-      "editor": "hidden"
+      "editor": "textfield"
     },
     "pinecone_env": {
       "title": "Pinecone env",
