@@ -12,6 +12,8 @@ async def main():
         # Get the value of the actor input
         actor_input = await Actor.get_input() or {}
 
+        os.environ['OPENAI_API_KEY'] = actor_input.get('openai_token')
+
         print("Loading dataset");
         loader = ApifyDatasetLoader(
             dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
