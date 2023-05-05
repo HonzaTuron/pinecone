@@ -28,5 +28,5 @@
       "editor": "textfield"
     }
   },
-  "required": ["index_name", "pinecone_token", "pinecone_env"]
+  "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token"]
 }
