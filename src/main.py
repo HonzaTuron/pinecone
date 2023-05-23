@@ -15,6 +15,9 @@ async def main():
         os.environ['OPENAI_API_KEY'] = actor_input.get('openai_token')
 
         print("Loading dataset")
+
+        print(actor_input.get('payload'))
+
         loader = ApifyDatasetLoader(
             dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
             dataset_mapping_function=lambda dataset_item: Document(
