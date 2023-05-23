@@ -16,7 +16,7 @@ async def main():
 
         print("Loading dataset")
 
-        print(actor_input.get('payload'))
+        print(actor_input.get('payload')['resource'])
 
         loader = ApifyDatasetLoader(
             dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
