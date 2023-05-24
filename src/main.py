@@ -38,8 +38,8 @@ async def main():
 
         print("Initializing pinecone")
         pinecone.init(
-            api_key=PINECONE_API_KEY,  # find at app.pinecone.io
-            environment=PINECONE_ENV  # next to api key in console
+            api_key=os.environ[PINECONE_API_KEY],  # find at app.pinecone.io
+            environment=os.environ[PINECONE_ENV]  # next to api key in console
         )
         print("Pinecone initialized")
 
