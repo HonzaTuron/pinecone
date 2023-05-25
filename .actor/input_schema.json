@@ -26,7 +26,13 @@
       "description": "Pinecone environment",
       "type": "string",
       "editor": "textfield"
-    }
+    },
+    "fields": {
+      "title": "Fields",
+      "type": "array",
+      "description": "Select field pushed to pinecone",
+      "editor": "stringList"
+      }
   },
-  "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token"]
+  "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token", "fields"]
 }
