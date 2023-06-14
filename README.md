@@ -12,6 +12,7 @@ For your integration, following input fields are required:
 - `fields` - Array of fields you want to push to Pinecone from your Actor. For example, if you want to push `name` and `description` fields, you should set this field to `["name", "description"]`.
 - `pinecone_env` - Pinecone environment name
 - `pinecone_token` - Pinecone API token
+- `index_name` - Pinecone index name. If this index doesn't exist yet, it will be created.
 - `openai_token` - OpenAI API token
 
 ## Usage
