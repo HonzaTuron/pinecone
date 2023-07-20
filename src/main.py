@@ -9,6 +9,7 @@ from langchain.text_splitter import CharacterTextSplitter
 
 async def main():
     async with Actor:
+
         # Get the value of the actor input
         actor_input = await Actor.get_input() or {}
 
@@ -49,6 +50,10 @@ async def main():
 
             embeddings = OpenAIEmbeddings()
             print("Creating index")
-            Pinecone.from_documents(docs, embeddings, index_name=index_name)
-            print("Index created")
 
+            try:
+                Pinecone.from_documents(docs, embeddings, index_name=index_name)
+                print("Index created")
+            except Exception as e:
+                await Actor.set_status_message(str(e))
+                print("Error creating index", e)
