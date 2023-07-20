@@ -55,5 +55,5 @@ async def main():
                 Pinecone.from_documents(docs, embeddings, index_name=index_name)
                 print("Index created")
             except Exception as e:
-                await Actor.set_status_message(str(e))
-                print("Error creating index", e)
+                await Actor.set_status_message(f"Index creation failed: {str(e)}")
+                await Actor.fail()
