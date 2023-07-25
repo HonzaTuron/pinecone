@@ -57,5 +57,5 @@ async def main():
             except Exception as e:
                 errorMessage = f"Index creation failed: {str(e)}"
                 print(errorMessage)
-                await Actor.set_status_message(errorMessage, True)
+                await Actor.set_status_message(errorMessage)
                 await Actor.fail()
