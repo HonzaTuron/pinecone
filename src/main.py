@@ -7,6 +7,20 @@ from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.text_splitter import CharacterTextSplitter
 
+def get_nested_value(data_dict, keys_str):
+    keys = keys_str.split('.')
+    result = data_dict
+
+    for key in keys:
+        if key in result:
+            result = result[key]
+        else:
+            # If any of the keys are not found, return None
+            return None
+
+    return result
+
+
 async def main():
     async with Actor:
 
@@ -24,7 +38,7 @@ async def main():
         for field in fields:
             loader = ApifyDatasetLoader(
                 dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
-                dataset_mapping_function=lambda dataset_item: Document(page_content=dataset_item[field])
+                dataset_mapping_function=lambda dataset_item: Document(page_content=get_nested_value(dataset_item, field))
 
             )
             print("Dataset loaded for field ", field)
