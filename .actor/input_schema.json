@@ -32,9 +32,21 @@
     "fields": {
       "title": "Fields",
       "type": "array",
-      "description": "Select field pushed to pinecone",
+      "description": "Select Dataset fields pushed to Pinecone (supports dot notation)",
       "editor": "stringList"
-      }
+    },
+    "metadata_fields": {
+      "title": "Metadata fields",
+      "type": "object",
+      "description": "Select fields pushed to Pinecone as metadata (supports dot notation)",
+      "editor": "json"
+    },
+    "metadata_values": {
+      "title": "Metadata values",
+      "type": "object",
+      "description": "Custom values pushed to Pinecone for every Dataset item as metadata",
+      "editor": "json"
+    }
   },
   "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token", "fields"]
 }
