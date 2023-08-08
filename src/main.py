@@ -1,6 +1,5 @@
 import os
 import pinecone
-from functools import reduce
 from apify import Actor
 from langchain.document_loaders import ApifyDatasetLoader
 from langchain.docstore.document import Document
@@ -76,6 +75,7 @@ async def main():
             print("Creating index")
 
             try:
+                pinecone_instance = Pinecone()
                 Pinecone.from_documents(docs, embeddings, index_name=index_name)
                 print("Index created")
             except Exception as e:

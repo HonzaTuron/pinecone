@@ -1,4 +1,7 @@
+
 # What does the Apify Pinecone integration do?
+
+WARNING: This Actor doesn't meant to be used through Actor input. Set this Actor up in other Actor's integration section.
 
 Our Apify Pinecone integration allows you to directly push selected fields from your Apify Actors to a Pinecone index, simplifying data retrieval and enabling advanced data analysis operations. If the index doesn't exist yet, no worries - the integration will create a new one for you.
 
