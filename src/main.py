@@ -75,7 +75,6 @@ async def main():
             print("Creating index")
 
             try:
-                pinecone_instance = Pinecone()
                 Pinecone.from_documents(docs, embeddings, index_name=index_name)
                 print("Index created")
             except Exception as e:
