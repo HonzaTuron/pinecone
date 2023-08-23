@@ -42,6 +42,8 @@ async def main():
         for field in metadata_fields:
             metadata_fields[field] = get_nested_value(actor_input.get('payload')['resource'], metadata_fields[field])
 
+        print("Metadata fields loaded", metadata_fields)
+
         for field in fields:
             loader = ApifyDatasetLoader(
                 dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
@@ -50,9 +52,9 @@ async def main():
                     metadata={**metadata_values, **{key: get_nested_value(dataset_item, value) for key, value in metadata_fields.items()}}
                 )
             )
-            print("Dataset loaded for field ", field)
+            print("Dataset loaded for field", field)
 
-            print("Loading documents for field ", field)
+            print("Loading documents for field", field)
         
             documents = loader.load()
             print("Documents loaded")
