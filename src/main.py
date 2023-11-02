@@ -5,7 +5,7 @@ from langchain.document_loaders import ApifyDatasetLoader
 from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.text_splitter import CharacterTextSplitter
 
 def get_nested_value(data_dict, keys_str):
     keys = keys_str.split('.')
@@ -60,7 +60,8 @@ async def main():
             print("Documents loaded")
 
             print("Splitting documents")
-            text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=20, length_function=len, add_start_index=True)
+
+            text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
             docs = text_splitter.split_documents(documents)
             print("Documents split")
 
