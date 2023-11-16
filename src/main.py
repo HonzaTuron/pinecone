@@ -1,6 +1,6 @@
 import os
 import pinecone
-from apify import Actor
+from apify import Actor, Dataset
 from langchain.document_loaders import ApifyDatasetLoader
 from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -37,12 +37,6 @@ async def main():
         PINECONE_ENV = actor_input.get('pinecone_env')
 
         print("Loading dataset")
-
-        # Iterator over metadata fields
-        for field in metadata_fields:
-            metadata_fields[field] = get_nested_value(actor_input.get('payload')['resource'], metadata_fields[field])
-
-        print("Metadata fields loaded", metadata_fields)
 
         for field in fields:
             loader = ApifyDatasetLoader(
