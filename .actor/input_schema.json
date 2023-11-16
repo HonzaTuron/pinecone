@@ -46,7 +46,13 @@
       "type": "object",
       "description": "Custom values pushed to Pinecone for every Dataset item as metadata",
       "editor": "json"
-    }
+    },
+    "dataset_id": {
+      "title": "Dataset ID",
+      "type": "string",
+      "description": "Dataset if (when running standalone)",
+      "editor": "textfield"
+    },
   },
   "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token", "fields"]
 }

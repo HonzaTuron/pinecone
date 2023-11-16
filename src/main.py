@@ -30,8 +30,10 @@ async def main():
         os.environ['OPENAI_API_KEY'] = actor_input.get('openai_token')
 
         fields = actor_input.get('fields') or []
+
         metadata_fields = actor_input.get('metadata_fields') or {}
         metadata_values = actor_input.get('metadata_values') or {}
+        dataset_id = actor_input.get('payload')['resource']['defaultDatasetId'] or actor_input.get('dataset_id')
 
         PINECONE_API_KEY = actor_input.get('pinecone_token')
         PINECONE_ENV = actor_input.get('pinecone_env')
@@ -40,7 +42,7 @@ async def main():
 
         for field in fields:
             loader = ApifyDatasetLoader(
-                dataset_id=actor_input.get('payload')['resource']['defaultDatasetId'],
+                dataset_id,
                 dataset_mapping_function=lambda dataset_item: Document(
                     page_content=get_nested_value(dataset_item, field),
                     metadata={**metadata_values, **{key: get_nested_value(dataset_item, value) for key, value in metadata_fields.items()}}
