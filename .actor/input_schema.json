@@ -52,7 +52,7 @@
       "type": "string",
       "description": "Dataset if (when running standalone)",
       "editor": "textfield"
-    },
+    }
   },
   "required": ["index_name", "pinecone_token", "pinecone_env", "openai_token", "fields"]
 }
