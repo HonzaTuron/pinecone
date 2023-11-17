@@ -1,6 +1,6 @@
 import os
 import pinecone
-from apify import Actor, Dataset
+from apify import Actor
 from langchain.document_loaders import ApifyDatasetLoader
 from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
