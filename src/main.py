@@ -33,7 +33,10 @@ async def main():
 
         metadata_fields = actor_input.get('metadata_fields') or {}
         metadata_values = actor_input.get('metadata_values') or {}
-        dataset_id = actor_input.get('payload')['resource']['defaultDatasetId'] or actor_input.get('dataset_id')
+        dataset_id = actor_input.get('payload', {}).get('resource', {}).get('defaultDatasetId', actor_input.get('dataset_id'))
+
+        if not dataset_id:
+            raise ValueError("No dataset id provided")
 
         PINECONE_API_KEY = actor_input.get('pinecone_token')
         PINECONE_ENV = actor_input.get('pinecone_env')
