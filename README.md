@@ -30,13 +30,15 @@ For this integration to work, you need to have:
 
 The following input fields are required for this integration:
 
-- `fields` - Array of fields you want to push to Pinecone from your Actor. For example, if you want to push `name` and `description` fields, you should set this field to `["name", "description"]`.
+- `fields` - Array of fields you want to push to Pinecone from your Actor. For example, if you want to push `name` and `user.description` fields, you should set this field to `["name", "user.description"]`. 
 - `metadata_values` - Object of metadata values you want to push to Pinecone from your Actor. For example, if you want to push `url` and `createdAt` values to Pinecone, you should set this field to `{"url": "https://www.apify.com", "createdAt": "2021-09-01"}`.
 - `metadata_fields` - Object of metadata fields you want to push to Pinecone from your Actor. For example, if you want to push `url` and `createdAt` fields, you should set this field to `{"url": "url", "createdAt": "createdAt"}`. If it has the same key as `metadata_values`, it's replaced.
 - `pinecone_env` - Pinecone environment name.
 - `pinecone_token` - Pinecone API token.
 - `index_name` - Pinecone index name.
 - `openai_token` - OpenAI API token.
+
+Fields `fields`, `metadata_values`, and `metadata_fields` supports dot notation. For example, if you want to push `name` field from `user` object, you should set `fields` to `["user.name"]`.
 
 ## Output
 

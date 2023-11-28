@@ -1,11 +1,13 @@
 import os
 import pinecone
+import sys
 from apify import Actor
 from langchain.document_loaders import ApifyDatasetLoader
 from langchain.docstore.document import Document
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Pinecone
 from langchain.text_splitter import CharacterTextSplitter
+
 
 def get_nested_value(data_dict, keys_str):
     keys = keys_str.split('.')
@@ -20,6 +22,11 @@ def get_nested_value(data_dict, keys_str):
 
     return result
 
+async def try_except(success, failure):
+    try:
+        return success()
+    except Exception as e:
+        await Actor.fail(status_message = failure)
 
 async def main():
     async with Actor:
@@ -36,6 +43,7 @@ async def main():
         dataset_id = actor_input.get('payload', {}).get('resource', {}).get('defaultDatasetId', actor_input.get('dataset_id'))
 
         if not dataset_id:
+            Actor.set_status_message("No dataset id provided")
             raise ValueError("No dataset id provided")
 
         PINECONE_API_KEY = actor_input.get('pinecone_token')
@@ -55,7 +63,7 @@ async def main():
 
             print("Loading documents for field", field)
         
-            documents = loader.load()
+            documents = await try_except(loader.load, f"Failed to load documents for field {field}")
             print("Documents loaded")
 
             print("Splitting documents")
