@@ -1,0 +1,9 @@
+{
+	"actorSpecification": 1,
+	"name": "dataset-to-pinecone",
+	"title": "Getting Started with Apify Python SDK",
+	"description": "Uploads a dataset to Pinecone",
+	"version": "0.0",
+	"input": "./input_schema.json",
+	"dockerfile": "./Dockerfile"
+}
