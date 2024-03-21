@@ -1,9 +1,9 @@
 import { ApifyDatasetLoader } from "langchain/document_loaders/web/apify_dataset";
-import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
+import { OpenAIEmbeddings } from "@langchain/openai";
 import { Document } from "@langchain/core/documents";
 import { Actor } from 'apify';
-import {CharacterTextSplitter} from "langchain/text_splitter";
-import {Pinecone} from "@pinecone-database/pinecone";
+import { CharacterTextSplitter } from "langchain/text_splitter";
+import { Pinecone } from "@pinecone-database/pinecone";
 import { PineconeStore } from "@langchain/pinecone"
 
 function getNestedValue(dataDict, keysStr) {
@@ -26,7 +26,7 @@ await Actor.init();
 
 const actorInput = await Actor.getInput();
 
-const { index_name, metadata_fields, metadata_values, pinecone_token, pinecone_env, fields = [] } = actorInput;
+const { index_name, metadata_fields, metadata_values, pinecone_token, pinecone_env, openai_token, fields = [] } = actorInput;
 const datasetId = actorInput?.payload?.resource?.defaultDatasetId || actorInput.dataset_id
 
 if (!datasetId) {
@@ -72,7 +72,7 @@ for (const field of fields) {
     const pineconeIndex = pinecone.index(index_name)
 
     try {
-        await PineconeStore.fromDocuments(docs, new OpenAIEmbeddings(), {
+        await PineconeStore.fromDocuments(docs, new OpenAIEmbeddings({ openAIApiKey: openai_token }), {
             index_name,
             maxConcurrency: 5, // Maximum number of batch requests to allow at once. Each batch is 1000 vectors.
             pineconeIndex,
