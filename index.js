@@ -26,7 +26,7 @@ await Actor.init();
 
 const actorInput = await Actor.getInput();
 
-const { index_name, metadata_fields, metadata_values, pinecone_token, pinecone_env, openai_token, fields = [] } = actorInput;
+const { index_name, metadata_fields, metadata_values, pinecone_token, openai_token, fields = [] } = actorInput;
 const datasetId = actorInput?.payload?.resource?.defaultDatasetId || actorInput.dataset_id
 
 if (!datasetId) {
@@ -77,6 +77,8 @@ for (const field of fields) {
             maxConcurrency: 5, // Maximum number of batch requests to allow at once. Each batch is 1000 vectors.
             pineconeIndex,
         });
+
+        await Actor.exit();
     } catch (e) {
         const errorMessage = `Index creation failed: ${e}`
         console.log(errorMessage)
