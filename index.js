@@ -40,7 +40,7 @@ for (const field of fields) {
                 pageContent: getNestedValue(datasetItem, field),
                 metadata: {
                     ...metadata_values,
-                    ...Object.entries(metadata_fields).reduce(
+                    ...Object.entries(metadata_fields || {}).reduce(
                         (acc, [key, value]) => {
                             acc[key] = getNestedValue(datasetItem, value);
                             return acc;
