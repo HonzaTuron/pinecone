@@ -1,6 +1,6 @@
-# ChromaDB integration
+# Pinecone integration
 
-The Apify ChromaDB integration seamlessly transfers selected data from Apify Actors to a ChromaDB.
+The Apify Pinecone integration seamlessly transfers selected data from Apify Actors to a ChromaDB.
 
 Is there anything you find unclear or missing? Please don't hesitate to inform us by creating an issue.
 
