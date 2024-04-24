@@ -47,6 +47,20 @@
       "description": "Custom values pushed to Pinecone for every Dataset item as metadata",
       "editor": "json"
     },
+    "chunk_size": {
+      "title": "Chunk size",
+      "type": "integer",
+      "description": "The maximum character length of each text chunk",
+      "default": 1000,
+      "minimum": 10
+    },
+    "chunk_overlap": {
+      "title": "Chunk overlap",
+      "type": "integer",
+      "description": "The character overlap between text chunks that are next to each other",
+      "default": 0,
+      "minimum": 0
+    },
     "dataset_id": {
       "title": "Dataset ID",
       "type": "string",
