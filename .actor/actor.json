@@ -1,8 +1,8 @@
 {
 	"actorSpecification": 1,
 	"name": "dataset-to-pinecone",
-	"title": "Getting Started with Apify Python SDK",
-	"description": "Uploads a dataset to Pinecone",
+	"title": "Pinecone integration for Apify",
+	"description": "Load Apify dataset, compute OpenAI embeddings and save it to Pinecone database.",
 	"version": "0.0",
 	"input": "./input_schema.json",
 	"dockerfile": "./Dockerfile"
