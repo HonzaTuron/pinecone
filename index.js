@@ -6,6 +6,10 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { Pinecone } from "@pinecone-database/pinecone";
 import { PineconeStore } from "@langchain/pinecone"
 
+
+// Attribute API activity to Apify
+const SOURCE_TAG = "apify";
+
 function getNestedValue(dataDict, keysStr) {
     const keys = keysStr.split('.');
     let result = dataDict;
@@ -60,8 +64,8 @@ for (const field of fields) {
     const docs = await textSplitter.splitDocuments(documents)
     console.log(`Created ${docs.length} chunks.`);
 
-    console.log("Initializing Pinecone");
-    const pinecone = new Pinecone({ apiKey: pinecone_token });
+    console.log("Initializing Pinecone")
+    const pinecone = new Pinecone({ apiKey: pinecone_token, sourceTag: SOURCE_TAG });
     const pineconeIndex = pinecone.index(index_name)
 
 
