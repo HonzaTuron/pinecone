@@ -64,7 +64,7 @@ for (const field of fields) {
     const docs = await textSplitter.splitDocuments(documents)
     console.log(`Created ${docs.length} chunks.`);
 
-    console.log("Initializing Pinecone")
+    console.log("Initializing Pinecone");
     const pinecone = new Pinecone({ apiKey: pinecone_token, sourceTag: SOURCE_TAG });
     const pineconeIndex = pinecone.index(index_name)
 
