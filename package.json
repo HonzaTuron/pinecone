@@ -14,7 +14,7 @@
     "@langchain/core": "^0.1.48",
     "@langchain/openai": "^0.0.21",
     "@langchain/pinecone": "^0.0.3",
-    "@pinecone-database/pinecone": "^2.1.0",
+    "@pinecone-database/pinecone": "^2.2.1",
     "apify": "^3.1.16",
     "apify-client": "^2.9.3",
     "langchain": "^0.1.28"
