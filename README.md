@@ -2,7 +2,7 @@
 
 Integrate Apify Actors with Pinecone to seamlessly transfer and store data as vectors.
 
-⚠️ **Important**: This Actor is intended for use alongside other Actors. For instance, when using the [Website Content Crawler](https://apify.com/apify/website-content-crawler), enable this integration to store data as vectors in Pinecone.
+⚠️ **Important**: This repository is deprecated - code is actively maintained in the [Apify vector database integrations repository](https://github.com/apify/actor-vector-database-integrations)
 
 Explore how to utilize vector stores on the Apify platform by reading our blog post: [Understanding Pinecone and Its Importance for Your LLMs](https://blog.apify.com/what-is-pinecone-why-use-it-with-llms/).
 
